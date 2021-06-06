@@ -10,6 +10,18 @@ use Mix.Config
 config :gitrepos,
   ecto_repos: [Gitrepos.Repo]
 
+config :gitrepos, Gitrepos.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
+config :gitrepos, GitreposWeb.Auth.Guardian,
+  issuer: "gitrepos",
+  secret_key: "nqK4wYQM9QLnfJwN7QZJGu5Mv6uwrFLH9Q9vP0k07ndzhPwmEfAlnPt7FmmHVI15"
+
+config :gitrepos, GitreposWeb.Auth.Pipeline,
+  module: GitreposWeb.Auth.Guardian,
+  error_handler: GitreposWeb.Auth.ErrorHandler
+
 # Configures the endpoint
 config :gitrepos, GitreposWeb.Endpoint,
   url: [host: "localhost"],
