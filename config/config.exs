@@ -16,7 +16,8 @@ config :gitrepos, Gitrepos.Repo,
 
 config :gitrepos, GitreposWeb.Auth.Guardian,
   issuer: "gitrepos",
-  secret_key: "nqK4wYQM9QLnfJwN7QZJGu5Mv6uwrFLH9Q9vP0k07ndzhPwmEfAlnPt7FmmHVI15"
+  secret_key: "nqK4wYQM9QLnfJwN7QZJGu5Mv6uwrFLH9Q9vP0k07ndzhPwmEfAlnPt7FmmHVI15",
+  ttl: {1, :minute}
 
 config :gitrepos, GitreposWeb.Auth.Pipeline,
   module: GitreposWeb.Auth.Guardian,
